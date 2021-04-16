@@ -11,10 +11,12 @@ server.get("/", async (req, res) => {
   }
 });
 
+
 server.post("/", async (req, res) => {
   const newName = await Model.insert(req.body);
+  console.log(newName)
   if (newName) {
-    res.status(201).json({ message: "posted" });
+    res.status(201).json(newName);
   }
 });
 
